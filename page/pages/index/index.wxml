@@ -1,0 +1,25 @@
+<!--index.wxml 首页-->
+<!-- 主容器 -->
+<view class='container'>
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 头部 -->
+  <view class='head'>
+
+  </view>
+  <!-- 身体 -->
+  <view class='body'>
+    <!-- 身体区块 -->
+    <view class='body-block' wx:for="{{listDatas}}" wx:key="*this">
+      <image class='img' src="{{item.img}}">
+      </image>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+</view>

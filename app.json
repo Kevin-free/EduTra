@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "page/pages/my/enroll/enroll",
+    "page/pages/my/my",
+    "page/pages/my/getTelVerifycode/getTelVerifycode",
+    "page/pages/my/schoolInfo/schoolInfo",
+    "page/pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#777777",
+    "selectedColor": "#06c77c",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "page/pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar/footer_index_icon.png",
+        "selectedIconPath": "assets/tabbar/footer_index_checked.png"
+      },
+      {
+        "pagePath": "page/pages/index/index",
+        "text": "课程",
+        "iconPath": "assets/tabbar/footer_column_icon.png",
+        "selectedIconPath": "assets/tabbar/footer_column_checked.png"
+      },
+      {
+        "pagePath": "page/pages/my/my",
+        "text": "我的",
+        "iconPath": "assets/tabbar/footer_person_icon.png",
+        "selectedIconPath": "assets/tabbar/footer_person_checked.png"
+      }
+    ]
+  }
+}

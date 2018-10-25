@@ -1,0 +1,345 @@
+/* pages/my/my.wxss */
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.headView {
+  width: calc(100%);
+  height: 340rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  background-image: url(https://static1.bcjiaoyu.com/topBg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-top: 50rpx;
+}
+
+.headView .item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.headView .item .avatar {
+  background-color: #f1f1f1;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 120rpx;
+  margin-right: 24rpx; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ava-img{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.headView .userinfoView {
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+}
+
+.headView .item .title1 {
+  color: #3a3a3a;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.logoView {
+  margin-top: -150rpx;
+  padding-top: 150rpx;
+  width: calc(100%);
+  background-color: #fff;
+  border-radius: 26rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.big_img{
+  width: 187px;
+  height: 188px;
+}
+
+.tip_txt{
+  color: #5a5a5a;
+}
+
+.bottomView .lessTimes {
+  background-color: #fff2c9;
+  color: #ffa200;
+  padding-left: 14rpx;
+  padding-right: 14rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 26rpx 0 26rpx 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.bottomView .item {
+  height: 146rpx;
+  margin-left: 46rpx;
+  margin-right: 46rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottomView .item text.title {
+  color: #41403e;
+  font-family: PingFangSC-Regular;
+  font-weight: Regular;
+}
+
+.bottomView .item text.desc {
+  color: #3a3a3a;
+  margin-left: 10rpx;
+}
+
+.bottomView .item image {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.bottomView .item .left {
+  display: flex;
+  align-items: center;
+}
+
+.bottomView .item .left image {
+  width: 30rpx;
+}
+
+.bottomView .item .left text {
+  margin-left: 25rpx;
+}
+
+.item.ui-bottom-line {
+}
+
+button.item {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.shareShadowView {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shareView {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.shareMenu {
+  width: 100%;
+  height: 228rpx;
+  background-color: #f1f1f1;
+  color: #5a5a5a;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareItem button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: auto;
+  line-height: 0;
+  box-sizing: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareItem .shareCircleView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareItem .iconView {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shareItem text {
+  color: #5a5a5a;
+  font-size: 26rpx;
+  display: block;
+  line-height: 30rpx;
+}
+
+.shareItem image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cancelShare {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  color: #5a5a5a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+}
+
+.savePhotoShadowView {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.savePhotoShadowView .closeView {
+  position: absolute;
+  right: 7%;
+  top: 4%;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.savePhotoShadowView .close {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.savePhotoShadowView .photo {
+  width: 90%;
+  height: 80%;
+  margin-top: 5%;
+  border-radius: 40rpx;
+}
+
+.savePhotoShadowView text {
+  background-color: #2ee5f9;
+  width: 90%;
+  color: #0c707b;
+  border-radius: 40rpx;
+  font-size: 36rpx;
+  height: 90rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  line-height: 90rpx;
+}
+
+button::after {
+  border: none;
+}
+
+.modifyNameView {
+  background-color: #fff;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modify-shadow-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modify-shadow-view .modify-view {
+  background-color: #fff;
+  width: calc(100% - 80rpx);
+  margin-left: 40rpx;
+  margin-top: 40%;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.modify-shadow-view .modify-view .title {
+  margin-top: 40rpx;
+  color: #3a3a3a;
+}
+
+.modify-shadow-view .modify-view input {
+  width: 80%;
+  border: solid 1px #d3d3d3;
+  padding: 10rpx;
+  margin-top: 40rpx;
+}
+
+.modify-shadow-view .modify-view .btn-view {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  margin-top: 40rpx;
+  border-top: solid 1px #d3d3d3;
+}
+
+.modify-shadow-view .modify-view .btn-view text {
+  width: 50%;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 20rpx;
+  line-height: 100rpx;
+  color: #3a3a3a;
+}
+
+.modify-shadow-view .modify-view .btn-view .border-view {
+  width: 2px;
+  height: 100%;
+  background-color: #d3d3d3;
+}

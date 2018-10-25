@@ -1,0 +1,57 @@
+<!--pages/getTelVerifycode/getTelVerifycode.wxml 获取验证码登录界面-->
+
+<!-- 密码登录 -->
+<view class='tel-view'>
+  <text>手机号</text>
+  <view class='tel-line-view'>
+    <view class='select-country-btn'>
+      <picker name='country' value='{{countryCodeIndex}}' range='{{countryCodes}}'>
+        <text>{{countryCodes[countryCodeIndex]}}</text>
+      </picker>
+    </view>
+    <input placeholder='请输入手机号码' bindinput='inputPhone' value='{{phone}}'></input>
+  </view>
+</view>
+<view class='getident-view'>
+  <text>密码</text>
+  <view class='identify-input'>
+    <input placeholder='请输入密码' bindinput='inputPassword' value='{{password}}'></input>   
+  </view>
+</view>
+
+<!-- 密码登录view -->
+<!-- <view class='pass-login-view' bindtap='loginPsw'>
+  <text>密码登录</text>
+</view> -->
+<!-- 手机号view -->
+<!-- <view class='tel-view'>
+  <text>手机号</text>
+  <view class='tel-line-view'>
+    <view class='select-country-btn'>
+      <picker name='country' value='{{countryCodeIndex}}' range='{{countryCodes}}'>
+        <text>{{countryCodes[countryCodeIndex]}}</text>
+      </picker>
+    </view>
+    <input placeholder='请输入手机号码' bindinput='telInputChange' value='{{telInputValue}}'></input>
+  </view>
+</view> -->
+<!-- 验证码view -->
+<!-- <view class='getident-view'>
+  <text>验证码</text>
+  <view class='identify-input'>
+    <input placeholder='请输入验证码' bindinput='onChange' value='{{identify}}'></input>
+    <view class='getIdentify'>
+      <text bindtap='getIdentify'>{{btnText}}</text>
+    </view>
+  </view>
+</view> -->
+<!-- 登录 -->
+<view class='login-view' bindtap='loginByPsw'>
+  <text>登录</text>
+</view>
+<!-- 提示 -->
+<view class='tip-view'>
+  <text>未注册手机号验证码登录后自动注册</text>
+</view>
+<!-- 底部view -->
+<view class='bottom-view'></view>

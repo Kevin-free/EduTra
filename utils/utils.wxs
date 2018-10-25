@@ -1,0 +1,167 @@
+var Utils = ({
+    dealTime: (function(time) {
+        var time = time + "";
+        var timeArray = time.split('.')[(0)].split('T');
+        var year = timeArray[(0)].split('-')[(0)];
+        var month = timeArray[(0)].split('-')[(1)];
+        var day = timeArray[(0)].split('-')[(2)];
+        var hour = timeArray[(1)].split(':')[(0)];
+        var minute = timeArray[(1)].split(':')[(1)];
+        var second = timeArray[(1)].split(':')[(2)];
+        var create = getDate(year, month - 1, day, hour, minute, second);
+        var current = getDate();
+        var s1 = current.getTime() - create.getTime();
+        var str = null;
+        if (s1 / (60 * 1000) < 1) {
+            str = "刚刚"
+        } else if (s1 / (60 * 1000) < 60) {
+            str = parseInt(s1 / (60 * 1000)) + "分钟前"
+        } else if (s1 / (60 * 1000) < 24 * 60) {
+            str = parseInt(s1 / (60 * 60 * 1000)) + "小时前"
+        } else if (s1 / (60 * 1000) < 24 * 60 * 2) {
+            str = "昨天 " + time.slice(11, 16)
+        } else {
+            str = time.slice(0, 10).replace('T', ' ')
+        };
+        return (str)
+    }),
+    getSubStr: (function(str, fromIndex, toIndex) {
+        return (str.slice(fromIndex, toIndex))
+    }),
+    getDateStr: (function(timeStr) {
+        return (timeStr.substring(5, 10))
+    }),
+    getFullDate: (function(time) {
+        var time = time + "";
+        var timeArray = time.split('.')[(0)].split('T');
+        var year = timeArray[(0)].split('-')[(0)];
+        var month = timeArray[(0)].split('-')[(1)];
+        var day = timeArray[(0)].split('-')[(2)];
+        var hour = timeArray[(1)].split(':')[(0)];
+        var minute = timeArray[(1)].split(':')[(1)];
+        var second = timeArray[(1)].split(':')[(2)];
+        var timeStr = year + "年" + month + "月" + day + "日" + " " + hour + ":" + minute;
+        return (timeStr)
+    }),
+    defaultAvatar: "https://static1.bcjiaoyu.com/userAvatar.png",
+    itemDic: (function(item, userinfo, index) {
+        var dic = ({
+            "item": item,
+            "userinfo": userinfo,
+            "defaultAvatar": Utils.defaultAvatar,
+            "index": index,
+        });
+        return (dic)
+    }),
+    questionDic: (function(item, param1, param2) {
+        var dic = ({
+            "item": item,
+        });
+        if (param1) {
+            dic[("" + "type")] = param1
+        };
+        if (param2) {
+            dic[("" + "myAnswer")] = param2
+        };
+        return (dic)
+    }),
+    questionDic1: (function(item, typeView, sortArr, sortmainx, sortstart) {
+        var dic = ({
+            "item": item,
+        });
+        if (typeView) {
+            dic[("" + "type")] = typeView
+        };
+        if (sortArr) {
+            dic[("" + "myAnswer")] = sortArr
+        };
+        if (sortmainx) {
+            dic[("" + "sortmainx")] = sortmainx
+        };
+        if (sortstart) {
+            dic[("" + "sortstart")] = sortstart
+        };
+        return (dic)
+    }),
+    questionDicNew: (function(item, helpEvent, testA) {
+        var dic = ({
+            item: item,
+        });
+        if (helpEvent) {
+            dic.helpEvent = helpEvent
+        };
+        if (testA) {
+            dic.testA = testA
+        };
+        return (dic)
+    }),
+    blankQuestionAction: (function(actions, myAnswers) {
+        var array = actions;
+        for (var i = 0; i < myAnswers.length; i++) {
+            if (myAnswers[((nt_32 = (i), null == nt_32 ? undefined : 'number' === typeof nt_32 ? nt_32 : "" + nt_32))].type == "blank" && myAnswers[((nt_33 = (i), null == nt_33 ? undefined : 'number' === typeof nt_33 ? nt_33 : "" + nt_33))].content != "") {
+                var index = myAnswers[((nt_34 = (i), null == nt_34 ? undefined : 'number' === typeof nt_34 ? nt_34 : "" + nt_34))].index;
+                console.log(myAnswers[((nt_35 = (i), null == nt_35 ? undefined : 'number' === typeof nt_35 ? nt_35 : "" + nt_35))].index, myAnswers[((nt_36 = (i), null == nt_36 ? undefined : 'number' === typeof nt_36 ? nt_36 : "" + nt_36))].content, myAnswers[((nt_37 = (i), null == nt_37 ? undefined : 'number' === typeof nt_37 ? nt_37 : "" + nt_37))].type);
+                array[((nt_38 = (index), null == nt_38 ? undefined : 'number' === typeof nt_38 ? nt_38 : "" + nt_38))][("" + "content")] = ""
+            }
+        };
+        return (array)
+    }),
+    blankMyAnswerToString: (function(myAnswers) {
+        var answers = [];
+        for (var i = 0; i < myAnswers.length; i++) {
+            if (myAnswers[((nt_39 = (i), null == nt_39 ? undefined : 'number' === typeof nt_39 ? nt_39 : "" + nt_39))].type == "blank") {
+                answers.push(myAnswers[((nt_40 = (i), null == nt_40 ? undefined : 'number' === typeof nt_40 ? nt_40 : "" + nt_40))].content)
+            }
+        };
+        return (answers.join(","))
+    }),
+    choiceHasItemInAnswer: (function(item, myAnswers) {
+        if (myAnswers.indexOf(item) > -1) {
+            return (true)
+        } else {
+            return (false)
+        }
+    }),
+    choiceMyAnswerToString: (function(myAnswers) {
+        return (myAnswers.join(","))
+    }),
+    sequenceMyAnswerToString: (function(myAnswers) {
+        var answers = [];
+        for (var i = 0; i < myAnswers.length; i++) {
+            if (typeof(myAnswers[((nt_41 = (i), null == nt_41 ? undefined : 'number' === typeof nt_41 ? nt_41 : "" + nt_41))]) === "string") {
+                answers.push(myAnswers[((nt_42 = (i), null == nt_42 ? undefined : 'number' === typeof nt_42 ? nt_42 : "" + nt_42))])
+            } else {
+                answers.push(myAnswers[((nt_43 = (i), null == nt_43 ? undefined : 'number' === typeof nt_43 ? nt_43 : "" + nt_43))].content)
+            }
+        };
+        return (answers.join(","))
+    }),
+    arrayToString: (function(arr) {
+        var str = arr.join(",");
+        return (str)
+    }),
+    stringToArr: (function(str) {
+        var array = str.split(",");
+        return (array)
+    }),
+    hasItemInString: (function(item, str) {
+        if (str) {
+            var array = Utils.stringToArr(str)
+        } else {
+            var array = []
+        };
+        if (array.indexOf(item) > -1) {
+            return (true)
+        } else {
+            return (false)
+        }
+    }),
+    getRandomNum: (function() {
+        var Num = "小橙子_";
+        for (var i = 0; i < 6; i++) {
+            Num += Math.floor(Math.random() * 10)
+        };
+        return (Num)
+    }),
+});
+module.exports = Utils;

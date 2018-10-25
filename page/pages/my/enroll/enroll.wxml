@@ -1,0 +1,27 @@
+<!--pages/my/enroll/enroll.wxml 报名界面-->
+<view class='container'>
+  <!-- 搜索栏 -->
+  <view class="search">
+    <input class="search-input" placeholder="按客户姓名/联系方式搜索" bindtap="bindFocus"></input>
+  </view>
+
+  <scroll-view class="scr" scroll-y="true">
+    <view class="bc_green">
+      <text class="nameBoard-text">{{column1}}</text>
+      <text class="nameBoard-text">{{column2}}</text>
+      <text class="nameBoard-text">{{column3}}</text>
+      <text class="nameBoard-text">{{column4}}</text>
+    </view>
+    <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
+      <view>
+        <view class="bc_green">
+          <text class="nameBoard-text">{{aaa.name}}</text>
+          <text class="nameBoard-text">{{aaa.age}}</text>
+          <text class="nameBoard-text">{{aaa.school}}</text>
+          <text class="nameBoard-text">{{aaa.cost}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+</view>

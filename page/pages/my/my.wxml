@@ -1,0 +1,43 @@
+<!--pages/my/my.wxml 我的-->
+<!-- 主容器 -->
+<view class='container'>
+  <!-- 头部 -->
+  <view class='headView'>
+    <view class='item' bindtap='goLogin'>
+      <!-- 头像 -->
+      <view class='avatar'>
+        <image class='ava-img' src='/assets/my/menologin.png'></image>
+      </view>
+      <!-- 用户信息 -->
+      <view class='userinfoView'>
+        <text class='title1'>{{userName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <!-- 根据是否登录控制显示的view -->
+  <!-- 此处显示未登录时的view -->
+  <view wx:if="{{isLogin==false}}" wx:key>
+    <view class='logoView'>
+      <image class='big_img' src='/assets/my/logo.png'></image>
+      <text class='tip_txt'>登录后可以查看更多内容哦~</text>
+    </view>
+  </view>
+
+  <!-- 此处显示登录后的view -->
+  <view wx:else>
+    <!-- grid网格区 -->
+    <view class='logoView'>
+      <view class="weui-grids">
+        <block wx:for="{{gridsWho}}" wx:key="*this">
+          <view class="weui-grid" hover-class="weui-grid_active" bindtap="{{item.tap}}">
+            <image class="weui-grid__icon" src="{{item.img}}" />
+            <view class="weui-grid__label">{{item.name}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+</view>
