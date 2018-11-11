@@ -1,2 +1,37 @@
 /**app.wxss**/
 @import '/page/common/lib/weui.wxss';
+
+/* 在线导入阿里iconfont图标 */
+/* 记得更新图标后要更新复制阿里的@font-face */
+
+@font-face {
+  font-family: 'iconfont';  /* project id 889227 */
+  src: url('//at.alicdn.com/t/font_889227_iw4so18spjm.eot');
+  src: url('//at.alicdn.com/t/font_889227_iw4so18spjm.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_889227_iw4so18spjm.woff') format('woff'),
+  url('//at.alicdn.com/t/font_889227_iw4so18spjm.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_889227_iw4so18spjm.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-school:after {
+  font-size: 30px;
+  content: "\e605";
+}
+
+.icon-enroll:after {
+  font-size: 30px;
+  content: "\e604";
+}
+
+.icon-schoolc:after {
+  font-size: 30px;
+  content: "\e600";
+}

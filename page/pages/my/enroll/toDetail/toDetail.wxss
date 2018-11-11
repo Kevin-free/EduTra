@@ -1,0 +1,6 @@
+/* page/pages/my/enroll/toDetail/toDetail.wxss */
+.btn{
+  margin-top: 80rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}

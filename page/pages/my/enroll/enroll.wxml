@@ -1,27 +1,54 @@
 <!--pages/my/enroll/enroll.wxml 报名界面-->
 <view class='container'>
-  <!-- 搜索栏 -->
-  <view class="search">
-    <input class="search-input" placeholder="按客户姓名/联系方式搜索" bindtap="bindFocus"></input>
-  </view>
-
-  <scroll-view class="scr" scroll-y="true">
-    <view class="bc_green">
-      <text class="nameBoard-text">{{column1}}</text>
-      <text class="nameBoard-text">{{column2}}</text>
-      <text class="nameBoard-text">{{column3}}</text>
-      <text class="nameBoard-text">{{column4}}</text>
-    </view>
-    <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
-      <view>
-        <view class="bc_green">
-          <text class="nameBoard-text">{{aaa.name}}</text>
-          <text class="nameBoard-text">{{aaa.age}}</text>
-          <text class="nameBoard-text">{{aaa.school}}</text>
-          <text class="nameBoard-text">{{aaa.cost}}</text>
-        </view>
+  <!-- movable-area可移动图层 -->
+  <movable-area>
+    <!-- 搜索栏 -->
+    <view class="search-wrapper">
+      <input class='search-input-wrapper' bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" placeholder="输入学校名称查询" placeholder-class="phcolor" value="{{barcode}}" confirm-type="search" />
+      <view class="search-button-wrapper">
+        <image class="search-button" src="/assets/icon/search_grey.png" bindtap="query"></image>
       </view>
-    </block>
-  </scroll-view>
+    </view>
 
+    <!-- 标题栏 -->
+    <view class="tabTit box">
+      <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab">
+        <text class='column-item'>{{item}}</text>
+        <image class='img-arrow' src="/assets/icon/sort.png"></image>
+      </view>
+    </view>
+    <!--筛选项-->
+    <view class="tabLayer" hidden="{{tab[0]}}">
+      <text class="{{school_id==0?'active':''}}" data-id="0" data-index="0" data-title="学校名称" bindtap="filter">不限</text>
+      <text class="{{school_id==item.id?'active':''}}" wx:for="{{schoolList}}" wx:key="school" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
+    </view>
+
+    <!-- 信息显示区 -->
+    <scroll-view class="scr" scroll-y="true">
+      <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
+        <view>
+          <view class="bc_green" data-index='{{index}}' bindtap='toDetail' bindlongpress="deleteItem">
+            <text class="nameBoard-text">{{aaa.name}}</text>
+            <text class="nameBoard-text">{{aaa.header}}</text>
+            <text class="nameBoard-text">{{aaa.phone}}</text>
+            <text class="nameBoard-text">{{aaa.homepage}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+
+    <!-- 添加按钮 -->
+    <!-- movable可移动view 必须是movable-area的直接子节点才有效-->
+    <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='addInfo'>
+      <image class="add_icon" src='/assets/icon/add.png'></image>
+    </movable-view>
+  </movable-area>
+
+  <!-- 模态框 -->
+  <modal hidden="{{hiddenmodalAdd}}" title="添加信息" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirmAdd">
+    <input class='input' bindinput='updateSchName' placeholder="学校名称：" value='{{schName}}' />
+    <input class='input' bindinput='updateSchHeader' placeholder="学校负责人：" value='{{schHeader}}' />
+    <input class='input' bindinput='updateSchPhone' placeholder="负责人电话：" value='{{schPhone}}' />
+    <input class='input' bindinput='updateSchHomepage' placeholder="学校官网：" value='{{schHomepage}}' />
+  </modal>
 </view>

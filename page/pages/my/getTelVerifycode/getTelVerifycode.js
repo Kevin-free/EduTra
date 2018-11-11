@@ -1,6 +1,7 @@
 // pages/getTelVerifycode2/getTelVerifycode2.js
 var e, t = require("../../../../utils/http.js"),
   a = require("../../../../utils/util.js"),
+  md5 = require("../../../../utils/md5.js"),
   s = getApp();
 
 Page({
@@ -18,18 +19,18 @@ Page({
     countryCodeIndex: 0,
   },
 
-  inputPhone: function(e){
+  inputPhone: function(e) {
     this.setData({
       phone: e.detail.value
     });
   },
-  inputPassword: function (e) {
+  inputPassword: function(e) {
     this.setData({
       password: e.detail.value
     });
   },
 
-  loginByPsw:function(e){
+  loginByPsw: function(e) {
     var that = this;
     // 判断登录
     wx.request({
@@ -38,35 +39,44 @@ Page({
       data: {
         //从全局变量data中获取数据
         userName: this.data.phone,
-        password: this.data.password,
+        password: md5.hexMD5(this.data.password),
         loginType: "mob",
       },
-      method: 'GET',//定义传到后台接受的是post方法还是get方法
+      method: 'GET', //定义传到后台接受的是post方法还是get方法
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success:function(res){
-        console.log("res.success:"+res.data.success);
-        var phone = that.data.phone, password = that.data.password;
+      success: function(res) {
+        console.log("res.success:" + res.data.success);
+        var phone = that.data.phone,
+          password = that.data.password;
         if (res.data.success) {
           // 同步方式存储表单数据
           wx.setStorageSync('phone', phone);
           wx.setStorageSync('password', password);
-
+          wx.setStorageSync('mobToken', res.data.rows[0].mobToken);
+          wx.setStorageSync('roleType', res.data.rows[0].roleType);
+          console.log("mobToken:" + res.data.rows[0].mobToken);
+          console.log("roleType:" + res.data.rows[0].roleType);
           let pages = getCurrentPages(); //当前页面
           let prevPage = pages[pages.length - 2]; //上一页面
           prevPage.setData({ //直接给上移页面赋值
             isLogin: true,
-            whoLogin: 'manager',
+            whoLogin: res.data.rows[0].roleType,
             userName: that.data.phone,
           });
           // 跳转页面
           wx.navigateBack({ //返回  navigateTo不能调至tabbar中的页面，所以得用navigateBack
             delta: 1 //指上1层
           })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
       },
-    }) 
+    })
 
   },
 

@@ -76,6 +76,24 @@
   color: #5a5a5a;
 }
 
+.icon{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.icon-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.img-icon{
+  width: 110rpx;
+  height: 110rpx;
+}
+
+/*  */
 .bottomView .lessTimes {
   background-color: #fff2c9;
   color: #ffa200;

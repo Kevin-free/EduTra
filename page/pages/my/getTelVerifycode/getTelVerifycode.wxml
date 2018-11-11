@@ -15,7 +15,7 @@
 <view class='getident-view'>
   <text>密码</text>
   <view class='identify-input'>
-    <input placeholder='请输入密码' bindinput='inputPassword' value='{{password}}'></input>   
+    <input placeholder='请输入密码' type='password' bindinput='inputPassword' value='{{password}}'></input>   
   </view>
 </view>
 

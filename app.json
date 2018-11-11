@@ -1,10 +1,11 @@
 {
   "pages": [
     "page/pages/my/enroll/enroll",
+    "page/pages/my/enroll/toDetail/toDetail",
     "page/pages/my/my",
-    "page/pages/my/getTelVerifycode/getTelVerifycode",
+    "page/pages/index/index",
     "page/pages/my/schoolInfo/schoolInfo",
-    "page/pages/index/index"
+    "page/pages/my/getTelVerifycode/getTelVerifycode"
   ],
   "window": {
     "backgroundTextStyle": "dark",

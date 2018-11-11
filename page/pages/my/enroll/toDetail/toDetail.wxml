@@ -1,0 +1,15 @@
+<!--page/pages/my/enroll/toDetail/toDetail.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">{{aaa.key}}</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type="text" value="{{aaa.value}}" name="schoolName" bindinput='changeValue'></input>
+      </view>
+    </view>
+  </block>
+</view>
+
+<button class='btn' type='primary' disabled='{{disabled}}' bindtap='confirm'>确认修改</button>

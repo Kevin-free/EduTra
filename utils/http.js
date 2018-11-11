@@ -1,7 +1,9 @@
 //服务器url配置
 var e = "https://app.cxy61.com/program_face2face",
   r = "https://app.cxy61.com/server",
+  s = "http://localhost:8080/learnning",
   o = {
+    server: s,
     serverDomain: r,
     domain: e,
     login: e + "/userinfo/invitation_code_login/",
