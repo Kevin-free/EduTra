@@ -21,7 +21,7 @@ Page({
         whoLogin: roleType,
         userName: phone,
       });
-    }else{
+    } else {
       this.setData({
         isLogin: true,
         whoLogin: 0,
@@ -42,12 +42,34 @@ Page({
         gridsWho: [{
           img: '',
           name: '学校信息',
-          icon: '/assets/icon/school.png',
+          tap: 'toSchoolInfo',
+          icon: '../../../assets/my/学校.png',
+        }, {
+          img: '',
+          name: '教师信息',
+          tap: 'toTeacherInfo',
+          icon: '/assets/my/教师.png',
+        }, {
+          img: '',
+          name: '学员信息',
+          tap: 'toStudentInfo',
+          icon: '/assets/my/学员.png',
         }, {
           img: '',
           name: '报名',
-          icon: '/assets/icon/enroll.png',
-        }]
+          tap: 'toEnroll',
+          icon: '/assets/my/报名.png',
+        }, {
+          img: '',
+          name: '比赛',
+          tap: 'toComp',
+          icon: '/assets/my/比赛.png',
+        }, {
+          img: '',
+          name: '学员风采',
+          tap: 'toStudentAct',
+          icon: '/assets/my/库存.png',
+        }, ]
       });
     }
 
@@ -59,40 +81,45 @@ Page({
           img: '',
           name: '学校信息',
           tap: 'toSchoolInfo',
-          icon: '/assets/icon/school.png',
+          icon: '../../../assets/my/学校.png',
+        }, {
+          img: '',
+          name: '教师信息',
+          tap: 'toTeacherInfo',
+          icon: '/assets/my/教师.png',
+        }, {
+          img: '',
+          name: '学员信息',
+          tap: 'toStudentInfo',
+          icon: '/assets/my/学员.png',
         }, {
           img: '',
           name: '报名',
           tap: 'toEnroll',
-            icon: '/assets/icon/enroll.png',
-        }, {
-          img: '',
-          name: '库存',
-          icon: 'icon-school',
-        }, {
-          img: '',
-          name: '教师信息',
-          icon: 'icon-school',
+          icon: '/assets/my/报名.png',
         }, {
           img: '',
           name: '比赛',
-          icon: 'icon-school',
+          tap: 'toComp',
+          icon: '/assets/my/比赛.png',
         }, {
           img: '',
-          name: '活动',
-          icon: 'icon-school',
+          name: '学员风采',
+          tap: 'toStudentAct',
+          icon: '/assets/my/库存.png',
         }, {
           img: '',
           name: '演出信息',
-          icon: 'icon-school',
+          icon: '/assets/my/报名.png',
         }, {
           img: '',
           name: '财务',
-          icon: 'icon-school',
+          icon: '/assets/my/报名.png',
         }, {
           img: '',
           name: '统计',
-          icon: 'icon-school',
+          tap: 'toCount',
+          icon: '/assets/my/报名.png',
         }]
       });
     }
@@ -104,19 +131,19 @@ Page({
         gridsWho: [{
           img: '',
           name: '个人信息',
-          icon: 'icon-school',
+          icon: 'icon-tongji',
         }, {
           img: '',
           name: '班级',
-          icon: 'icon-school',
+          icon: 'icon-tongji',
         }, {
           img: '',
           name: '考勤',
-          icon: 'icon-school',
+          icon: 'icon-tongji',
         }, {
           img: '',
           name: '课酬',
-          icon: 'icon-school',
+          icon: 'icon-tongji',
         }]
       });
     }
@@ -136,10 +163,46 @@ Page({
     })
   },
 
+  // 跳转至教师信息界面
+  toTeacherInfo: function() {
+    wx.navigateTo({
+      url: 'teacherInfo/teacherInfo',
+    })
+  },
+
+  // 跳转至学员信息界面
+  toStudentInfo: function() {
+    wx.navigateTo({
+      url: 'studentInfo/studentInfo',
+    })
+  },
+
   // 跳转至报名界面
   toEnroll: function() {
     wx.navigateTo({
       url: 'enroll/enroll',
+    })
+  },
+
+  // 跳转至报名界面
+  toComp: function() {
+    wx.navigateTo({
+      url: 'comp/comp',
+    })
+  },
+
+  // 跳转至学员风采界面
+  toStudentAct: function () {
+    wx.navigateTo({
+      url: 'studentAct/studentAct',
+    })
+  },
+
+
+  // 跳转至统计界面
+  toCount: function() {
+    wx.navigateTo({
+      url: 'count/count',
     })
   },
 

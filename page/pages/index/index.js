@@ -16,7 +16,7 @@ Page({
     duration: 1000, //持续时间
 
     listDatas: [{
-      img: 'https://p0.meituan.net/movie/ea4ac75173a8273f3956e514a4c78018253143.jpeg',
+      img: '/assets/my/topBg.png',
       text: '文本1'
     }, {
       img: 'https://p0.meituan.net/movie/5d4fa35c6d1215b5689257307c461dd2541448.jpeg',

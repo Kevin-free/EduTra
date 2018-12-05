@@ -9,13 +9,13 @@
         <text>{{countryCodes[countryCodeIndex]}}</text>
       </picker>
     </view>
-    <input placeholder='请输入手机号码' bindinput='inputPhone' value='{{phone}}'></input>
+    <input class='input' maxlength='11' placeholder='请输入手机号码' bindinput='inputPhone' value='{{phone}}'></input>
   </view>
 </view>
 <view class='getident-view'>
   <text>密码</text>
   <view class='identify-input'>
-    <input placeholder='请输入密码' type='password' bindinput='inputPassword' value='{{password}}'></input>   
+    <input class='input' placeholder='请输入密码' type='password' bindinput='inputPassword' value='{{password}}'></input>   
   </view>
 </view>
 

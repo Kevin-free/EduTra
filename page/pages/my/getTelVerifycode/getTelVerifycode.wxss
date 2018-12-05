@@ -1,4 +1,10 @@
 /* pages/getTelVerifycode2/getTelVerifycode2.wxss */
+.input{
+  border:0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
 .pass-login-view {
     font-size: 14px;
     color: #5D5D5D;

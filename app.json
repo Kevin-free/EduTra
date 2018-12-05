@@ -1,40 +1,48 @@
 {
   "pages": [
-    "page/pages/my/enroll/enroll",
-    "page/pages/my/enroll/toDetail/toDetail",
     "page/pages/my/my",
-    "page/pages/index/index",
+    "page/pages/my/enroll/enroll",
+    "page/pages/my/studentInfo/studentInfo",
+    "page/pages/my/studentAct/studentAct",
+    "page/pages/my/comp/toDetail/toDetail",
+    "page/pages/my/comp/comp",
+    "page/pages/my/teacherInfo/teacherInfo",
+    "page/pages/my/teacherInfo/toDetail/toDetail",
+    "page/pages/my/enroll/toDetail/toDetail",
     "page/pages/my/schoolInfo/schoolInfo",
-    "page/pages/my/getTelVerifycode/getTelVerifycode"
+    "page/pages/index/index",
+    "page/pages/my/getTelVerifycode/getTelVerifycode",
+    "page/pages/my/count/count",
+    "page/pages/course/course"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFC200",
     "navigationBarTitleText": "首页",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#777777",
-    "selectedColor": "#06c77c",
+    "selectedColor": "#FFC200",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "page/pages/index/index",
         "text": "首页",
         "iconPath": "assets/tabbar/footer_index_icon.png",
-        "selectedIconPath": "assets/tabbar/footer_index_checked.png"
+        "selectedIconPath": "assets/tabbar/footer_index_checked_y.png"
       },
       {
-        "pagePath": "page/pages/index/index",
+        "pagePath": "page/pages/course/course",
         "text": "课程",
         "iconPath": "assets/tabbar/footer_column_icon.png",
-        "selectedIconPath": "assets/tabbar/footer_column_checked.png"
+        "selectedIconPath": "assets/tabbar/footer_column_checked_y.png"
       },
       {
         "pagePath": "page/pages/my/my",
         "text": "我的",
         "iconPath": "assets/tabbar/footer_person_icon.png",
-        "selectedIconPath": "assets/tabbar/footer_person_checked.png"
+        "selectedIconPath": "assets/tabbar/footer_person_checked_y.png"
       }
     ]
   }

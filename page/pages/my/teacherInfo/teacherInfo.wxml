@@ -1,0 +1,38 @@
+<!--pages/my/enroll/enroll.wxml 教师界面-->
+<view class='container'>
+  <!-- movable-area可移动图层 -->
+  <movable-area>
+    <!-- 搜索栏 -->
+    <view class="search-wrapper">
+      <input class='search-input-wrapper' bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" placeholder="输入姓名查询" placeholder-class="phcolor" value="{{barcode}}" confirm-type="search" />
+      <view class="search-button-wrapper">
+        <image class="search-button" src="/assets/icon/search_grey.png" bindtap="query"></image>
+      </view>
+    </view>
+
+    <!-- 信息显示区 -->
+    <scroll-view class="scr" scroll-y="true">
+      <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
+        <view>
+          <view class="bc_green box" data-index='{{index}}' bindtap='toDetail' bindlongpress="deleteItem">
+            <image class='avatar' src='{{aaa.avatar}}'></image>
+              <text class="nameBoard-text">{{aaa.name}}</text>
+              <text class="nameBoard-text">{{aaa.header}}</text>
+              <text class="nameBoard-text">{{aaa.phone}}</text>
+              <text class="nameBoard-text">{{aaa.homepage}}</text>
+            <image class='icon-arrow' src='/assets/icon/more.png'></image>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+
+  </movable-area>
+
+  <!-- 模态框 -->
+  <modal hidden="{{hiddenmodalAdd}}" title="添加信息" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirmAdd">
+    <input class='input' bindinput='updateSchName' placeholder="学校名称：" value='{{schName}}' />
+    <input class='input' bindinput='updateSchHeader' placeholder="学校负责人：" value='{{schHeader}}' />
+    <input class='input' bindinput='updateSchPhone' placeholder="负责人电话：" value='{{schPhone}}' />
+    <input class='input' bindinput='updateSchHomepage' placeholder="学校官网：" value='{{schHomepage}}' />
+  </modal>
+</view>

@@ -1,4 +1,8 @@
 <!--page/pages/my/enroll/toDetail/toDetail.wxml-->
+<view class='info'>
+  <image class='avatar' src='{{avatar}}'></image>
+  <text class='name'>{{name}}</text>
+</view>
 <view class="weui-cells weui-cells_after-title">
   <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
     <view class="weui-cell weui-cell_input">
@@ -11,5 +15,3 @@
     </view>
   </block>
 </view>
-
-<button class='btn' type='primary' disabled='{{disabled}}' bindtap='confirm'>确认修改</button>

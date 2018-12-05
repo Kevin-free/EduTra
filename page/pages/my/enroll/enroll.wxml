@@ -1,10 +1,10 @@
-<!--pages/my/enroll/enroll.wxml 报名界面-->
+<!--pages/my/enroll/enroll.wxml 报名缴费界面-->
 <view class='container'>
   <!-- movable-area可移动图层 -->
   <movable-area>
     <!-- 搜索栏 -->
     <view class="search-wrapper">
-      <input class='search-input-wrapper' bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" placeholder="输入学校名称查询" placeholder-class="phcolor" value="{{barcode}}" confirm-type="search" />
+      <input class='search-input-wrapper' bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" placeholder="输入姓名查询" placeholder-class="phcolor" value="{{barcode}}" confirm-type="search" />
       <view class="search-button-wrapper">
         <image class="search-button" src="/assets/icon/search_grey.png" bindtap="query"></image>
       </view>
@@ -19,19 +19,31 @@
     </view>
     <!--筛选项-->
     <view class="tabLayer" hidden="{{tab[0]}}">
-      <text class="{{school_id==0?'active':''}}" data-id="0" data-index="0" data-title="学校名称" bindtap="filter">不限</text>
-      <text class="{{school_id==item.id?'active':''}}" wx:for="{{schoolList}}" wx:key="school" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
+      <text class="{{school_id==0?'active':''}}" data-id="0" data-index="0" data-title="培训项目" bindtap="filter">不限</text>
+      <text class="{{school_id==item.id?'active':''}}" wx:for="{{itemList}}" wx:key="school" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
+    </view>
+
+    <view class="tabLayer" hidden="{{tab[1]}}">
+      <text class="{{chargeType_id==0?'active':''}}" data-id="0" data-index="1" data-title="缴费类型" bindtap="filter">不限</text>
+      <text class="{{chargeType_id==item.id?'active':''}}" wx:for="{{chargeTypeList}}" wx:key="chargeType" wx:for-item="item" data-id="{{item.id}}" data-index="1" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
+    </view>
+
+    <view class="tabLayer" hidden="{{tab[2]}}">
+      <text class="{{chargeCondition_id==0?'active':''}}" data-id="0" data-index="2" data-title="缴费状态" bindtap="filter">不限</text>
+      <text class="{{chargeCondition_id==item.id?'active':''}}" wx:for="{{chargeConditionList}}" wx:key="chargeCondition" wx:for-item="item" data-id="{{item.id}}" data-index="2" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
     </view>
 
     <!-- 信息显示区 -->
     <scroll-view class="scr" scroll-y="true">
       <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
         <view>
-          <view class="bc_green" data-index='{{index}}' bindtap='toDetail' bindlongpress="deleteItem">
+          <view class="bc_green box" data-index='{{index}}' bindtap='toDetail' bindlongpress="deleteItem">
+            <image class='avatar' src='{{aaa.avatar}}'></image>
             <text class="nameBoard-text">{{aaa.name}}</text>
             <text class="nameBoard-text">{{aaa.header}}</text>
             <text class="nameBoard-text">{{aaa.phone}}</text>
             <text class="nameBoard-text">{{aaa.homepage}}</text>
+            <image class='icon-arrow' src='/assets/icon/more.png'></image>
           </view>
         </view>
       </block>
@@ -46,9 +58,9 @@
 
   <!-- 模态框 -->
   <modal hidden="{{hiddenmodalAdd}}" title="添加信息" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirmAdd">
-    <input class='input' bindinput='updateSchName' placeholder="学校名称：" value='{{schName}}' />
-    <input class='input' bindinput='updateSchHeader' placeholder="学校负责人：" value='{{schHeader}}' />
-    <input class='input' bindinput='updateSchPhone' placeholder="负责人电话：" value='{{schPhone}}' />
-    <input class='input' bindinput='updateSchHomepage' placeholder="学校官网：" value='{{schHomepage}}' />
+    <input class='input' bindinput='updateSchName' placeholder="学员姓名：" value='{{schName}}' />
+    <input class='input' bindinput='updateSchHeader' placeholder="缴费类型：" value='{{schHeader}}' />
+    <input class='input' bindinput='updateSchPhone' placeholder="缴费时间：" value='{{schPhone}}' />
+    <input class='input' bindinput='updateSchHomepage' placeholder="缴费状态：" value='{{schHomepage}}' />
   </modal>
 </view>

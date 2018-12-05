@@ -1,0 +1,18 @@
+<!--page/pages/my/enroll/toDetail/toDetail.wxml-->
+<!-- <view class='info'>
+  <image class='avatar' src='{{avatar}}'></image>
+  <text class='name'>{{name}}</text>
+</view> -->
+<view class="weui-cells weui-cells_after-title">
+  <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">{{aaa.key}}</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type="text" value="{{aaa.value}}" name="schoolName" bindinput='changeValue'></input>
+      </view>
+      <image class='icon-arrow' src='/assets/icon/more.png'></image>
+    </view>
+  </block>
+</view>

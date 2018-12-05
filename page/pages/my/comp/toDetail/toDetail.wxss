@@ -1,0 +1,35 @@
+/* page/pages/my/comp/toDetail/toDetail.wxss */
+.container{
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.img{
+  border: 1px solid green;
+  width: calc(100%);
+  height: 300rpx;
+}
+
+.txt-box{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txt-info{
+  margin-top: 60rpx;
+}
+
+.btn{
+  position: fixed;
+  bottom: 10rpx;
+  width: 300px;
+  border-radius: 10rpx;
+  padding: 20rpx 0rpx;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  background-color: #FFC200;
+}

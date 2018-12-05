@@ -1,1 +1,3 @@
 /* pages/my/schoolInfo/schoolInfo.wxss */
+.weui-cell{
+}

@@ -1,19 +1,19 @@
 <!--pages/my/schoolInfo/schoolInfo.wxml-->
 <view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">{{list1}}</view>
+  <block wx:for="{{infos}}" wx:key="*this">
+    <view class="weui-cell weui-cell_input" data-index='{{index}}' bindtap='change'>
+      <view class="weui-cell__hd">
+        <view class="weui-label">{{item.list}}</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type="text" disabled="{{true}}" value="{{item.value}}" name="schoolHeader"></input>
+      </view>
+      <image class='icon-arrow' src='/assets/icon/more.png'></image>
     </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" type="text" disabled="{{true}}" value="{{name}}" name="schoolName"></input>
-    </view>
-  </view>
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">{{list2}}</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" type="text" disabled="{{true}}" value="{{header}}" name="schoolHeader"></input>
-    </view>
-  </view>
+  </block>
+
+  <!-- 模态框 -->
+  <modal hidden="{{hiddenmodal}}" title="修改{{list}}" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <input class='input' bindinput='update' placeholder="请输入要修改的信息" value='{{value}}' />
+  </modal>
 </view>

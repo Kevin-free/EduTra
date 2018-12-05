@@ -8,13 +8,15 @@
 
 .headView {
   width: calc(100%);
-  height: 340rpx;
+  height: 304rpx;
   padding-left: 30rpx;
   padding-right: 30rpx;
   background-image: url(https://static1.bcjiaoyu.com/topBg.png);
+  /* background-color: #FFC200; */
   background-repeat: no-repeat;
   background-size: contain;
-  padding-top: 50rpx;
+  display: flex;
+  align-items: center;
 }
 
 .headView .item {
@@ -55,8 +57,7 @@
 }
 
 .logoView {
-  margin-top: -150rpx;
-  padding-top: 150rpx;
+  margin-top: -16rpx;
   width: calc(100%);
   background-color: #fff;
   border-radius: 26rpx;

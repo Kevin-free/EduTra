@@ -1,18 +1,149 @@
 // pages/my/enroll/enroll.js
 Page({
   data: {
-    tabTxt: ['学校名称', '学校负责人', '负责人电话', '学校官网'], //分类
-    tab: [true, true, true, true],
-    schoolList: [{
+    tabTxt: ['培训项目', '缴费类型', '缴费状态'], //分类
+    tab: [true, true, true],
+    // 培训项目筛选list
+    itemList: [{
       'id': '1',
-      'title': '九江学院'
+      'title': '拉丁舞'
     }, {
       'id': '2',
-      'title': '九江职大'
+      'title': '钢琴'
+    }],
+    // 缴费类型筛选list
+    chargeTypeList: [{
+      'id': '1',
+      'title': '月费'
+    }, {
+      'id': '2',
+      'title': '季费'
+    }, {
+      'id': '3',
+      'title': '年费'
+    }],
+    // 缴费状态筛选list
+    chargeConditionList: [{
+      'id': '1',
+      'title': '已缴清'
+    }, {
+      'id': '2',
+      'title': '未缴清'
     }],
 
+    avatar: '/assets/icon/boy.png',
+    avatarg: '/assets/icon/girl.png',
     infosId: '',
-    infos: [],
+    infos: [{
+        avatar: "/assets/icon/boy.png",
+        name: "吴俊文",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/boy.png",
+        name: "周子渲",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨萱",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨涵",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      }, {
+        avatar: "/assets/icon/boy.png",
+        name: "吴俊文",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/boy.png",
+        name: "周子渲",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨萱",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨涵",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      }, {
+        avatar: "/assets/icon/boy.png",
+        name: "吴俊文",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/boy.png",
+        name: "周子渲",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨萱",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨涵",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      }, {
+        avatar: "/assets/icon/boy.png",
+        name: "吴俊文",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/boy.png",
+        name: "周子渲",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨萱",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+      {
+        avatar: "/assets/icon/girl.png",
+        name: "赵雨涵4",
+        header: "年费",
+        phone: "2018.9-2019.8",
+        homepage: "已缴清"
+      },
+    ],
 
     schName: '', //设置此data默认为空
     schHeader: '',
@@ -23,8 +154,8 @@ Page({
     hiddenmodalAdd: true,
 
     second_height: 0, //剩下的屏幕高度，用于设置movable-area
-    x: 10, //用于设置movable-view位置
-    y: 10,
+    x: 280, //用于设置movable-view位置
+    y: 472,
   },
 
   // 监听页面加载
@@ -33,6 +164,7 @@ Page({
     // 获取手机系统信息
     wx.getSystemInfo({
       success: function(res) {
+        console.log("width:" + res.windowWidth + "height:" + res.windowHeight)
         that.setData({
           x: res.windowWidth - 80,
           y: res.windowHeight - 100,
@@ -43,37 +175,37 @@ Page({
     })
 
     // 发送请求后台学校信息数据
-    wx.request({
-      url: "http://localhost:8080/learnning/schoolAction/get/",
-      data: {
-        token: wx.getStorageSync('mobToken'),
-      },
-      method: 'GET', //定义传到后台接受的是post方法还是get方法
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function(res) {
-        // 设置显示为对应后台传来的数据
-        var data = res.data.rows;
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-          var name = 'infos[' + i + '].name';
-          var header = 'infos[' + i + '].header';
-          var phone = 'infos[' + i + '].phone';
-          var homepage = 'infos[' + i + '].homepage';
-          that.setData({
-            [name]: data[i].name,
-            [header]: data[i].header,
-            [phone]: data[i].phone,
-            [homepage]: data[i].homepage,
-          });
-        }
-      }
-    })
+    // wx.request({
+    //   url: "http://localhost:8080/learnning/schoolAction/get/",
+    //   data: {
+    //     token: wx.getStorageSync('mobToken'),
+    //   },
+    //   method: 'GET', //定义传到后台接受的是post方法还是get方法
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success: function(res) {
+    //     // 设置显示为对应后台传来的数据
+    //     var data = res.data.rows;
+    //     console.log(data);
+    //     for (var i = 0; i < data.length; i++) {
+    //       var name = 'infos[' + i + '].name';
+    //       var header = 'infos[' + i + '].header';
+    //       var phone = 'infos[' + i + '].phone';
+    //       var homepage = 'infos[' + i + '].homepage';
+    //       that.setData({
+    //         [name]: data[i].name,
+    //         [header]: data[i].header,
+    //         [phone]: data[i].phone,
+    //         [homepage]: data[i].homepage,
+    //       });
+    //     }
+    //   }
+    // })
   },
 
   // 搜索查询事件
-  query: function(e){
+  query: function(e) {
     console.log("do query");
   },
 
@@ -156,7 +288,7 @@ Page({
           wx.showToast({
             title: res.data.msg,
           })
-        }else{
+        } else {
           wx.showToast({
             icon: 'none',
             title: res.data.msg,
@@ -201,7 +333,7 @@ Page({
 
   // 选项卡
   filterTab: function(e) {
-    var data = [true, true, true, true],
+    var data = [true, true, true],
       index = e.currentTarget.dataset.index;
     data[index] = !this.data.tab[index];
     this.setData({
@@ -216,18 +348,41 @@ Page({
       id = e.currentTarget.dataset.id,
       title = e.currentTarget.dataset.title,
       tabTxt = this.data.tabTxt;
+    console.log("index:" + e.currentTarget.dataset.index)
     // 判断点击哪个标题
     switch (e.currentTarget.dataset.index) {
-      // 下标0 学校名称
+      // 下标0 培训项目
       case '0':
         tabTxt[0] = title;
         self.setData({
-          tab: [true, true, true, true],
+          tab: [true, true, true],
           tabTxt: tabTxt,
           school_id: id,
           school_txt: title
         });
         console.log("schoo_id:" + self.data.school_id + ",school_txt:" + self.data.school_txt)
+        break;
+        // 下标1 学校名称
+      case '1':
+        tabTxt[1] = title;
+        self.setData({
+          tab: [true, true, true],
+          tabTxt: tabTxt,
+          chargeType_id: id,
+          chargeType_txt: title
+        });
+        console.log("chargeType_id:" + self.data.chargeType_id + ",chargeType_txt:" + self.data.chargeType_txt)
+        break;
+        // 下标1 学校名称
+      case '2':
+        tabTxt[2] = title;
+        self.setData({
+          tab: [true, true, true],
+          tabTxt: tabTxt,
+          chargeCondition_id: id,
+          chargeCondition_txt: title
+        });
+        console.log("chargeCondition_id:" + self.data.chargeCondition_id + ",chargeCondition_txt:" + self.data.chargeCondition_txt)
         break;
     }
     //数据筛选

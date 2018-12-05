@@ -1,0 +1,11 @@
+<!--page/pages/my/comp/toDetail/toDetail.wxml-->
+<view class='container'>
+  <image class='img'></image>
+
+  <view class='txt-box'>
+    <text>第四届南昌国际拉丁舞锦标赛</text>
+    <text class='txt-info'>  官方介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</text>
+  </view>
+
+  <view class='btn'>我要报名</view>
+</view>
