@@ -1,17 +1,30 @@
 <!--page/pages/my/studentAct/studentAct.wxml-->
 <!-- 标题栏 -->
-<view class="tabTit box">
-  <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab">
-    <text class='column-item'>{{item}}</text>
-    <image class='img-arrow' src="/assets/icon/sort.png"></image>
+<view>
+  <view class="tabTit box">
+    <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab">
+      <text class='column-item'>{{item}}</text>
+      <image class='img-arrow' src="/assets/icon/sort.png"></image>
+    </view>
   </view>
-</view>
-<!--筛选项-->
-<view class="tabLayer" hidden="{{tab[0]}}">
-  <text class="{{school_id==0?'active':''}}" data-id="0" data-index="0" data-title="班级" bindtap="filter">不限</text>
-  <text class="{{school_id==item.id?'active':''}}" wx:for="{{itemList}}" wx:key="school" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
-</view>
-<view class="tabLayer" hidden="{{tab[1]}}">
-  <text class="{{chargeType_id==0?'active':''}}" data-id="1" data-index="1" data-title="类型" bindtap="filter">不限</text>
-  <text class="{{chargeType_id==item.id?'active':''}}" wx:for="{{chargeTypeList}}" wx:key="chargeType" wx:for-item="item" data-id="{{item.id}}" data-index="1" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
+  <!--筛选项-->
+  <view class="tabLayer" hidden="{{tab[0]}}">
+    <text class="{{school_id==0?'active':''}}" data-id="0" data-index="0" data-title="班级" bindtap="filter">不限</text>
+    <text class="{{school_id==item.id?'active':''}}" wx:for="{{itemList}}" wx:key="school" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
+  </view>
+  <view class="tabLayer" hidden="{{tab[1]}}">
+    <text class="{{chargeType_id==0?'active':''}}" data-id="1" data-index="1" data-title="类型" bindtap="filter">不限</text>
+    <text class="{{chargeType_id==item.id?'active':''}}" wx:for="{{chargeTypeList}}" wx:key="chargeType" wx:for-item="item" data-id="{{item.id}}" data-index="1" data-title="{{item.title}}" bindtap="filter">{{item.title}}</text>
+  </view>
+  <scroll-view class="scr" scroll-y="true">
+    <view class="weui-grids">
+      <block wx:for="{{infos}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
+        <view class="weui-grid" bindtap="{{aaa.tap}}">
+          <image class='img' src='{{aaa.img}}'></image>
+          <view class="weui-grid__label">{{aaa.txt}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  
 </view>

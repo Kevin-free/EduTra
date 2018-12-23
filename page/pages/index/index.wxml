@@ -1,25 +1,39 @@
 <!--index.wxml 首页-->
-<!-- 主容器 -->
-<view class='container'>
-  <!-- 轮播图 -->
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key="*this">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" />
-      </swiper-item>
+<!-- 轮播图 -->
+<swiper autoplay="true" circular="true" class="banner-swiper" duration="1000" indicatorActiveColor="#f29004" indicatorColor="#fec97f" indicatorDots="true" interval="5000">
+  <swiper-item wx:for="{{advertisements}}" wx:key="{{item.id}}">
+    <image class="slide-image" src="{{item}}"></image>
+  </swiper-item>
+</swiper>
+<!-- 头部 -->
+<view class='head'>
+  <view class="weui-grids">
+    <block wx:for="{{item}}" wx:key="" wx:for-index="index" wx:for-item="aaa">
+      <view class="weui-grid" bindtap="{{aaa.tap}}">
+        <image src='{{aaa.img}}'></image>
+        <text>{{aaa.txt}}</text>
+      </view>
     </block>
-  </swiper>
-  <!-- 头部 -->
-  <view class='head'>
-
-  </view>
-  <!-- 身体 -->
-  <view class='body'>
-    <!-- 身体区块 -->
-    <view class='body-block' wx:for="{{listDatas}}" wx:key="*this">
-      <image class='img' src="{{item.img}}">
-      </image>
-      <text>{{item.text}}</text>
-    </view>
   </view>
 </view>
+<!-- 热销广告位 -->
+<view class='ad-box'>
+  <view class='left'>
+    <image class='up' src='/assets/images/1.png'> 
+    </image>
+    <image class='down' src='/assets/images/2.png'> 
+    </image>
+  </view>
+  <view class='right'>
+    <image class='big' src='/assets/images/3.png'> 
+    </image>
+  </view>
+</view>
+<!-- 身体 -->
+<!-- <view class='body'>
+  <view class='body-block' wx:for="{{listDatas}}" wx:key="*this">
+    <image class='img' src="{{item.img}}">
+    </image>
+    <text>{{item.text}}</text>
+  </view>
+</view> -->

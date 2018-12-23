@@ -1,3 +1,7 @@
 /* pages/my/schoolInfo/schoolInfo.wxss */
 .weui-cell{
 }
+
+.btn{
+  margin-top: 20rpx;
+}

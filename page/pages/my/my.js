@@ -74,7 +74,7 @@ Page({
     }
 
     // 如果是校区管理员
-    if (that.data.whoLogin == 5) {
+    if (that.data.whoLogin == 4) {
       console.log("show manager")
       that.setData({
         gridsWho: [{

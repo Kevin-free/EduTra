@@ -1,14 +1,13 @@
 <!--pages/my/schoolInfo/schoolInfo.wxml-->
 <view class="weui-cells weui-cells_after-title">
   <block wx:for="{{infos}}" wx:key="*this">
-    <view class="weui-cell weui-cell_input" data-index='{{index}}' bindtap='change'>
+    <view class="weui-cell weui-cell_input" >
       <view class="weui-cell__hd">
         <view class="weui-label">{{item.list}}</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" type="text" disabled="{{true}}" value="{{item.value}}" name="schoolHeader"></input>
+        <input class="weui-input" type="text" disabled="{{false}}" value="{{item.value}}" name="{{item.name}}" data-index='{{index}}' bindinput='updateInput{{index}}'></input>
       </view>
-      <image class='icon-arrow' src='/assets/icon/more.png'></image>
     </view>
   </block>
 
@@ -17,3 +16,5 @@
     <input class='input' bindinput='update' placeholder="请输入要修改的信息" value='{{value}}' />
   </modal>
 </view>
+
+<button type='primary' class='btn' disabled='{{}}' bindtap='confirmUpdate'>确认修改</button>

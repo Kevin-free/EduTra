@@ -27,32 +27,29 @@ Page({
     avatarg: '/assets/icon/girl.png',
     infosId: '',
     infos: [{
-        avatar: "/assets/icon/boy.png",
-        name: "吴俊文",
-        header: "年费",
-        phone: "2018.9-2019.8",
-        homepage: "已缴清"
+        img: "/assets/icon/boy.png",
+        txt: "吴俊文(6岁|九院校区)",
+        tap: "toDetail"
       },
       {
-        avatar: "/assets/icon/boy.png",
-        name: "周子渲",
-        header: "年费",
-        phone: "2018.9-2019.8",
-        homepage: "已缴清"
+        img: "/assets/icon/boy.png",
+        txt: "吴俊文(7岁|九院校区)"
       },
       {
-        avatar: "/assets/icon/girl.png",
-        name: "赵雨萱",
-        header: "年费",
-        phone: "2018.9-2019.8",
-        homepage: "已缴清"
+        img: "/assets/icon/boy.png",
+        txt: "吴俊文(8岁|九院校区)"
       },
       {
-        avatar: "/assets/icon/girl.png",
-        name: "赵雨涵",
-        header: "年费",
-        phone: "2018.9-2019.8",
-        homepage: "已缴清"
+        img: "/assets/icon/boy.png",
+        txt: "吴俊文(9岁|九院校区)"
+      },
+      {
+        img: "/assets/icon/boy.png",
+        txt: "吴俊文(8岁|九院校区)"
+      },
+      {
+        img: "/assets/icon/boy.png",
+        txt: "吴俊文(9岁|九院校区)"
       },
     ],
 
