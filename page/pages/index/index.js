@@ -53,5 +53,8 @@ Page({
       img: 'http://img1.vzmapp.com/uploadPic/2017/04/07/20170407111157cut.jpg',
       txt: '音乐舞蹈类',
     }],
+
+    proList: [
+      { itemName: "乐器类", code: "010", id: "2c92cf3c603468430160496b257a4bf8", productList: Array(4) }],
   }
 })

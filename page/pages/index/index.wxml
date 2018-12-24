@@ -17,16 +17,86 @@
   </view>
 </view>
 <!-- 热销广告位 -->
+<view class="rec-pros-top">
+  <view class="line line-left"></view>
+  <view class="iconfont icon-huo"></view>
+  <view class="rec-pros-txt">热销课程</view>
+  <view class="line line-right"></view>
+</view>
 <view class='ad-box'>
   <view class='left'>
-    <image class='up' src='/assets/images/1.png'> 
+    <image class='up' src='/assets/images/1.png'>
     </image>
-    <image class='down' src='/assets/images/2.png'> 
+    <image class='down' src='/assets/images/2.png'>
     </image>
   </view>
   <view class='right'>
-    <image class='big' src='/assets/images/3.png'> 
+    <image class='big' src='/assets/images/3.png'>
     </image>
+  </view>
+</view>
+<!-- 猜你喜欢 -->
+<view class="rec-pros-frame">
+  <view class="rec-pros-top">
+    <view class="line line-Left"></view>
+    <view class="iconfont icon-xin"></view>
+    <view class="rec-pros-txt">猜你喜欢</view>
+    <view class="line line-Right"></view>
+  </view>
+
+  <view class="classname">
+    <block wx:for="{{proList}}" wx:key="{{item.id}}">
+      <view class="class-title">
+        <view class="class-txt">
+          <view class="class-redbox"></view>
+          <text>{{item.itemName}}</text>
+        </view>
+        <view bindtap="toProductList" class="class-more" data-code="{{item.code}}" data-title="{{item.itemName}}">更多
+          <text class="iconfont icon-arrow-right"></text>
+        </view>
+      </view>
+      <!-- <view class="rec-pros-list clearfix">
+        <block wx:if="{{indexData.hotRecommendStyle!=2}}">
+          <view bindtap="toProductDetail" class="rec-pros-item" data-pid="{{productItem.id}}" wx:for="{{item.productList}}" wx:for-item="productItem" wx:key="{{item.id}}">
+            <view class="group-label1" wx:if="{{productItem.actType=='5'}}">拼团</view>
+            <image src="{{productItem.productImageList[0].imageURL}}"></image>
+            <view class="rec-pros-name">{{productItem.productName}}</view>
+            <view class="rec-pros-price" wx:if="{{productItem.purpose=='1'||productItem.purpose=='3'}}">
+              <text>￥<text class="bigBlue">{{productItem.actType=='5'?productItem.groupsPrice:productItem.price}}</text>
+              </text>
+              <text class="ori-price">￥{{productItem.originalprice}}</text>
+              <text class="saleCount">销量:{{productItem.saleCount}}</text>
+            </view>
+            <view class="rec-pros-price2" wx:else>
+              <text class="bigBlue">{{productItem.showName}}</text>
+              <text class="saleCount" hidden="{{isPerson}}">销量:{{productItem.saleCount}}</text>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view bindtap="toProductDetail" class="newstyle-item" data-pid="{{item.id}}" wx:for="{{item.productList}}">
+            <view class="group-label1" wx:if="{{productItem.actType=='5'}}">拼团</view>
+            <image src="{{item.hotRecommendImage}}"></image>
+            <view class="rec-pro-info">
+              <text class="rec-pro-name">{{item.productName}}</text>
+              <view class="rec-pro-bottom" wx:if="{{item.purpose=='1'||item.purpose=='3'}}">
+                <view class="price-frame">
+                  <text class="rec-pro-price">￥{{productItem.actType=='5'?productItem.groupsPrice:productItem.price}}</text>
+                  <text class="rec-pro-oriprice">￥{{item.originalprice}}</text>
+                </view>
+                <text class="rec-pro-salecount">销量：{{item.saleCount}}</text>
+              </view>
+              <view class="rec-pro-bottom" wx:else>
+                <view class="price-frame">
+                  <text class="rec-pro-price">{{item.showName}}</text>
+                </view>
+                <text class="rec-pro-salecount" hidden="{{isPerson}}">销量：{{item.saleCount}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view> -->
+    </block>
   </view>
 </view>
 <!-- 身体 -->
